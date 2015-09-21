@@ -11,12 +11,12 @@ node[:deploy].each do |application, deploy|
     owner 'root'
     group 'root'
   end
-  remote_file "Copy bin folder" do 
-    path "/var/inc" 
-    source "#{deploy[:deploy_to]}/current/bin"
+ 
+  remote_directory '/var/inc' do
+    source '#{deploy[:deploy_to]}/current/bin'
     owner 'root'
     group 'root'
-    mode 0755
-    end
-  end
+    mode '0755'
+    action :create
+   end
 end
