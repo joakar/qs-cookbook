@@ -13,12 +13,10 @@ node[:deploy].each do |application, deploy|
   end
   remote_file "Copy bin folder" do 
     path "/var/inc" 
-    source "#{deploy[:deploy_to]}/bin"
+    source "#{deploy[:deploy_to]}/current/bin"
     owner 'root'
     group 'root'
     mode 0755
-    only_if do
-      !File.exists?("/var/inc")
     end
   end
 end
