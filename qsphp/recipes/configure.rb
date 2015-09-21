@@ -10,6 +10,5 @@ node[:deploy].each do |application, deploy|
     mode '0644'
     owner 'root'
     group 'root'
-    variables(:directives => node['qsphp']['directives'])
   end
 end
