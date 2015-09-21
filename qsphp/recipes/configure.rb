@@ -13,7 +13,7 @@ node[:deploy].each do |application, deploy|
   end
  
   remote_directory '/var/inc' do
-    source '#{deploy[:deploy_to]}/current/bin'
+    source '/srv/www/qs_master/current/bin'
     owner 'root'
     group 'root'
     mode '0755'
