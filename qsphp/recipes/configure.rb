@@ -5,11 +5,11 @@ node[:deploy].each do |application, deploy|
   end
 
   template "/etc/php.d/qs.ini" do
-    cookbook 'php'
+    cookbook 'qsphp'
     source 'qs.ini.erb'
     mode '0644'
     owner 'root'
     group 'root'
-    variables(:directives => node['php']['directives'])
+    variables(:directives => node['qsphp']['directives'])
   end
 end
