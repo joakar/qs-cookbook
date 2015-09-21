@@ -1,6 +1,6 @@
 require 'minitest/spec'
 
-describe_recipe 'php::configure' do
+describe_recipe 'qsphp::configure' do
   include MiniTest::Chef::Resources
   include MiniTest::Chef::Assertions
 

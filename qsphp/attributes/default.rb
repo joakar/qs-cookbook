@@ -15,5 +15,3 @@
 ###
 
 include_attribute 'deploy'
-
-include_attribute "php::customize"
