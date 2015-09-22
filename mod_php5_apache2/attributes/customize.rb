@@ -6,10 +6,39 @@
 # put the overrides in YOUR customize.rb file.
 ###
 
-normal[:mod_php5_apache2][:packages] = [ 'php56-common',
-                                         'php56-cli',
-                                         'php56-gd',
-                                         'php56-intl',
-                                         'php56-mcrypt',
-                                         'php56-imap',
-                                         'php56-mysqlnd']
+# The following shows how to override the mod_php5_apache2 packages:
+#
+#normal[:mod_php5_apache2][:packages] = [ 'php-xml',
+#                                         'php-common',
+#                                         'php-xmlrpc',
+#                                         'php-devel',
+#                                         'php-gd',
+#                                         'php-cli',
+#                                         'php-pear-Auth-SASL',
+#                                         'php-mysql',
+#                                         'php-mcrypt' ]
+packages = []
+
+#modify to use php55 for rhel/amazon linux
+case node[:platform_family]
+when 'rhel'
+  packages = [
+    'php55-xml',
+    'php55-common',
+    'php55-xmlrpc',
+    'php55-devel',
+    'php55-gd',
+    'php55-cli',
+    'php-pear-Auth-SASL',
+    'php55-mysqlnd',
+    'php55-mcrypt',
+    'php55-pecl-memcache',
+    'php-pear',
+    'php-pear-XML-Parser',
+    'php-pear-Mail-Mime',
+    'php-pear-DB',
+    'php-pear-HTML-Common'
+  ]
+end
+
+normal[:mod_php5_apache2][:packages] = packages
