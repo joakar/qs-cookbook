@@ -4,7 +4,7 @@ node[:deploy].each do |application, deploy|
     next
   end
 
-  template "/etc/php.d/qs.ini" do
+  template "/php5/apache2/conf.d/qs.ini" do
     cookbook 'qsphp'
     source 'qs.ini.erb'
     mode '0644'
