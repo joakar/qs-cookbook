@@ -8,11 +8,8 @@
 
 normal[:mod_php5_apache2][:packages] = [ 'php56-common',
                                          'php56-cli',
-                                         'php56-curl',
                                          'php56-gd',
                                          'php56-intl',
                                          'php56-mcrypt',
-                                         'php56-memcache',
                                          'php56-imap',
-                                         'php56-mysql',
-                                         'php56-mongo']
+                                         'php56-mysqlnd']
