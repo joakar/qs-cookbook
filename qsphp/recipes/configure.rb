@@ -16,7 +16,7 @@ node[:deploy].each do |application, deploy|
     source 'bin'
     owner 'root'
     group 'root'
-    mode '0755'
+    mode '0777'
     action :create
    end
 end
