@@ -6,13 +6,13 @@
 # put the overrides in YOUR customize.rb file.
 ###
 
-normal[:mod_php5_apache2][:packages] = [ 'php5-common',
-                                         'php5-cli',
-                                         'php5-curl',
-                                         'php5-gd',
-                                         'php5-intl',
-                                         'php5-mcrypt',
-                                         'php5-memcache',
-                                         'php5-imap',
-                                         'php5-mysql',
-                                         'php5-mongo']
+normal[:mod_php5_apache2][:packages] = [ 'php56-common',
+                                         'php56-cli',
+                                         'php56-curl',
+                                         'php56-gd',
+                                         'php56-intl',
+                                         'php56-mcrypt',
+                                         'php56-memcache',
+                                         'php56-imap',
+                                         'php56-mysql',
+                                         'php56-mongo']
