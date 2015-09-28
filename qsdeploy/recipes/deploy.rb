@@ -1,8 +1,7 @@
-include_recipe "deploy"
-include_recipe "php5"
+include_recipe 'deploy'
+include_recipe "nginx::service"
 
 node[:deploy].each do |application, deploy|
-
   Chef::Log.info("Deploying application #{application} on #{node[:opsworks][:instance][:hostname]}")
 
   if deploy[:application_type] != 'php'
@@ -23,10 +22,6 @@ node[:deploy].each do |application, deploy|
 
   nginx_web_app application do
     application deploy
-  end
-
-  Chef::Log.info("Running composer update on #{deploy[:deploy_to]}")
-  composer_update do
-    path deploy[:deploy_to]}
+    cookbook "nginx"
   end
 end
