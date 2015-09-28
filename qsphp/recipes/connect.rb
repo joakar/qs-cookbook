@@ -13,6 +13,7 @@ node[:deploy].each do |application, deploy|
     group deploy[:group]
     variables(
       :database => deploy[:database],
+      :environment => deploy[:environment_variables],
       :memcached => deploy[:memcached],
       :layers => node[:opsworks][:layers],
       :stack_name => node[:opsworks][:stack][:name]

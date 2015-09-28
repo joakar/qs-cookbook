@@ -12,6 +12,7 @@ class OpsWorksDb {
     $this->username = '<%= @database[:username] %>';
     $this->password = '<%= @database[:password] %>';
     $this->reconnect = '<%= @database[:reconnect] ? 'true' : 'false' %>';
+
   }
 }
 
@@ -41,5 +42,18 @@ class OpsWorks {
 
   public function hosts($layer) {
     return $this->stack_map[$layer];
+  }
+}
+
+class OpsWorksEnviroment {
+  public $enviroment;
+
+  public function __construct() {
+
+    $this->enviroment = {
+    	<% @environment.each do |key, value| %>
+         	'<%= key %>':'<%= value %>',
+        <% end %>
+    }
   }
 }
