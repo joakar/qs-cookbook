@@ -6,7 +6,7 @@ node[:deploy].each do |application, deploy|
 
   # write out opsworks.php
   template "#{deploy[:deploy_to]}/current/qsconnect.php" do
-    cookbook 'php'
+    cookbook 'qsphp'
     source 'qsconnect.php.erb'
     mode '0754'
     owner deploy[:user]
