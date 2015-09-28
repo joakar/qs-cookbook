@@ -49,11 +49,10 @@ class OpsWorksEnviroment {
   public $enviroment;
 
   public function __construct() {
-
-    $this->enviroment = {
-    	<% @environment.each do |key, value| %>
-         	'<%= key %>':'<%= value %>',
-        <% end %>
-    }
+    $this->enviroment = [
+    <% @environment.each do |key, value| %>
+      '<%= key %>'=>'<%= value %>',
+    <% end %>
+    ];
   }
 }
