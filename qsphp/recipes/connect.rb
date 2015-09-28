@@ -5,7 +5,7 @@ node[:deploy].each do |application, deploy|
   end
 
   # write out opsworks.php
-  template "#{deploy[:deploy_to]}/shared/config/opsworks.php" do
+  template "#{deploy[:deploy_to]}/current/opsworks.php" do
     cookbook 'php'
     source 'opsworks.php.erb'
     mode '0660'
@@ -18,7 +18,7 @@ node[:deploy].each do |application, deploy|
       :stack_name => node[:opsworks][:stack][:name]
     )
     only_if do
-      File.exists?("#{deploy[:deploy_to]}/shared/config")
+      File.exists?("#{deploy[:deploy_to]}/current")
     end
   end
 end
