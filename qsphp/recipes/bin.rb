@@ -9,6 +9,7 @@ node[:deploy].each do |application, deploy|
     owner 'root'
     group 'root'
     mode '0777'
+    files_mode '0777'
     action :create
    end
 end
