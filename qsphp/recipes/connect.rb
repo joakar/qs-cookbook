@@ -8,7 +8,7 @@ node[:deploy].each do |application, deploy|
   template "#{deploy[:deploy_to]}/current/opsworks.php" do
     cookbook 'php'
     source 'opsworks.php.erb'
-    mode '0660'
+    mode '0754'
     owner deploy[:user]
     group deploy[:group]
     variables(
