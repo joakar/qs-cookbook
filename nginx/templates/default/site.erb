@@ -18,9 +18,10 @@ server {
     fastcgi_index   index.php;
     fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
     include         fastcgi_params;
-
-	<% @application[':environment_variables'].each do |key, value| %>
-		fastcgi_param <%= key %> <%= value %>;
+	<% if @application[:environment_variables] %>
+		<% @application[':environment_variables'].each do |key, value| %>
+			fastcgi_param <%= key %> <%= value %>;
+		<% end %>
 	<% end %>
   }
 
@@ -70,9 +71,6 @@ server {
     fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
     include         fastcgi_params;
 
-	<% @environment.each do |key, value| %>
-		fastcgi_param <%= key %> <%= value %>;
-	<% end %>
   }
 
   # Block all svn access
